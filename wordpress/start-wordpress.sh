@@ -2,7 +2,13 @@
 
 # to host wordpress locally
 
-mkdir -p wordpress_data/db
-mkdir -p wordpress_data/content
-
-docker-compose -f docker-compose.wordpress.yml up -d
+if [ ! -d "wordpress_data/db" ]; then
+    echo "creating db directory..."
+    mkdir -p wordpress_data/db
+fi
+if [ ! -d "wordpress_data/content" ]; then
+    echo "creating wp content directory..."
+    mkdir -p wordpress_data/content
+fi
+echo "starting wordpress containers..."
+docker-compose up -d
