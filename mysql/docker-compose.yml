@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: mysqlroot
+       MYSQL_DATABASE: mysql
+       MYSQL_USER: mysql
+       MYSQL_PASSWORD: mysql
+
+volumes:
+    db_data:
+      driver: local
+      driver_opts:
+         type: none
+         o: bind
+         device: "${PWD}/mysql_data/db"
