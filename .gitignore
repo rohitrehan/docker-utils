@@ -1,1 +1,9 @@
 wordpress/wordpress_data
+.vscode
+lamp/.env
+lamp/config/*
+lamp/data/*
+lamp/logs/*
+lamp/www/**
+.DS_Store
+lamp/buildtest
